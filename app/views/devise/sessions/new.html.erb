@@ -1,5 +1,4 @@
 <html class="fontawesome-i2svg-active fontawesome-i2svg-complete">
-  
   <main>
   
     <div class="container">
@@ -10,9 +9,10 @@
           <h2>Log in</h2>
           
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            
             <div class="field">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              <%= f.label :name %><br />
+              <%= f.text_field :name, autofocus: true, autocomplete: "name"  %>
             </div>
           
             <div class="field">
@@ -28,7 +28,7 @@
             <% end %>
           
             <div class="actions">
-              <%= f.submit "Log in" %>
+              <input type="submit" name="commit" value="Log in" class="btn btn-sm btn-primary" data-disable-with="Sign up">
             </div>
           <% end %>
           
@@ -39,5 +39,6 @@
         </div>
       </div>
     </div>
+    
   </main>
 </html>
