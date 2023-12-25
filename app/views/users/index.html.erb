@@ -4,6 +4,7 @@
     
     <div class="col-md-3">
       
+      <%= render 'books/new', book: @book ,user: @user %>
     </div>
     
     <div class="col-md-8 offset-md-1">
@@ -19,14 +20,16 @@
           </tr>
         </thead>
         
+        <% @users.each do |user| %>
         <tbody>
           <tr>
-            <td><%= image_tag book.user.get_profile_image %></td>
-            
+            <td><%= image_tag user.get_profile_image %></td>
+            <td><%= user.name %></td>
+            <td></td>
           </tr>
         </tbody>
+        <% end %>
       </table>
-      
     </div>
   </div>
 </div>
