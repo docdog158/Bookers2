@@ -27,9 +27,10 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     @user = @book.user
     if @book.save
-      flash[:notice] = "Book was successfully created."
+      flash[:notice] = "You have created book successfully."
       redirect_to book_path(@book)
     else
+      @books = Book.all
       render :index
     end
       
@@ -65,9 +66,9 @@ class BooksController < ApplicationController
   end
   
   def is_matching_login_user
-    user = User.find(params[:id])
-    unless user.id == current_user.id
-      redirect_to post_books_path
+    book = Book.find(params[:id])
+    unless book.user.id == current_user.id
+      redirect_to books_path
     end
   end
   
