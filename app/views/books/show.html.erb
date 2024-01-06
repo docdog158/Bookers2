@@ -22,7 +22,7 @@
                 <%= link_to @user.name, user_path(@user.id) %></td>
             <td><%= link_to @books.title, book_path(@books.id)  %></td>
             <td><%= @books.body %></td>
-            <% if @user == current_user.id %>
+            <% if @user == current_user %>
               <td><%= link_to "Edit", edit_book_path(@books), class: "btn btn-sm btn-success" %></td>
               <td><%= link_to "Destroy",book_path(@books), method: :delete,class:"btn btn-sm btn-danger","data-confirm" => "本当に消しますか？" %></td>
             <% end %>
